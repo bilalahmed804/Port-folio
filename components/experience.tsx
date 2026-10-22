@@ -50,8 +50,8 @@ export function Experience() {
     <div className="career-layout">
       <aside className="career-intro">
         <span className="career-eyebrow">03 / THE CAREER PASSPORT</span>
-        <h2 id="career-title">Places I’ve built.<br/><em>Things I’ve learned.</em></h2>
-        <p>A few stops along the way. Each one bringing a new perspective to the work I do today.</p>
+        <h2 id="career-title">Where I’ve built.<br/><em>Things I’ve learned.</em></h2>
+        <p>Each step in my journey brings a new perspective to the work I do today.</p>
         <div className="passport-cover">
           <div className="passport-cover-border">
             <div className="passport-cover-top"><span>CREATIVE PROFESSIONAL</span><span>NO. 003</span></div>
@@ -83,7 +83,7 @@ export function Experience() {
           <h3 className="certification-title">Certifications</h3>
           {certifications.map(item=><article key={item.name}><div className="education-icon" aria-hidden="true">✓</div><div><h4>{item.name}</h4><p>{item.issuer}</p></div></article>)}
         </section>
-        <div className="career-next"><span className="next-destination" aria-hidden="true">↗</span><div><small>NEXT DESTINATION</small><p>Somewhere we build together.</p><a href="#contact">Make it your team ↗</a></div></div></div>
+        <div className="career-next"><span className="next-destination" aria-hidden="true">↗</span><div><small>NEXT DESTINATION</small><p>Let’s build the next chapter together.</p><a href="#contact">Let’s talk about your team ↗</a></div></div></div>
     </div>
   </section>;
 }
