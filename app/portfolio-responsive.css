@@ -1,0 +1,407 @@
+/* Laptop/desktop keep globals.css exactly as authored. All overrides stop at 1023px. */
+@media (max-width: 1023px) {
+  :root {
+    --compact-header: 68px;
+    --compact-gutter: clamp(24px, 4vw, 40px);
+  }
+
+  html { scroll-padding-top: calc(var(--compact-header) + 16px); }
+  .paper::before { left: 12px; }
+  .topbar {
+    height: var(--compact-header);
+    padding-inline: var(--compact-gutter);
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 16px;
+  }
+  .topbar > .brand { width: 40px; height: 40px; font-size: 15px; }
+  .topbar nav { justify-content: center; min-width: 0; gap: 4px; }
+  .topbar nav a { min-height: 44px; display: grid; place-items: center; padding: 10px clamp(8px, 1.5vw, 15px); font-size: 13px; white-space: nowrap; }
+  .header-cta { min-height: 44px; padding-inline: 14px; font-size: 12px; white-space: nowrap; }
+  .mobile-talk { min-width: 44px; min-height: 44px; }
+  .topbar a:focus-visible, .mobile-menu-toggle:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
+
+  .paper > .stack-section { position: relative; top: auto; scroll-margin-top: 0; }
+  .stack-section { padding-inline: var(--compact-gutter); }
+  .scrapbook-layout > *, .career-layout > *, .sheet-body > *,
+  .toolkit-heading > *, .desk-heading > *, .passport-education article > div { min-width: 0; }
+
+  .hero {
+    height: auto;
+    max-height: none;
+    min-height: max(820px, calc(100svh - var(--compact-header)));
+    padding-block: 120px 210px;
+  }
+  .hero-intro { font-size: clamp(30px, 4vw, 40px); margin-bottom: 54px; }
+  .hero-title-wrap { max-width: 100%; padding: 12px 16px; margin-bottom: 54px; }
+  .hero-title-wrap h1 { font-size: clamp(32px, 10.8vw, 108px); text-shadow: 5px 6px 0 var(--yellow); }
+  .hero .tag { font-size: clamp(13px, 2vw, 18px); padding: 6px 10px; border-width: 2px; }
+  .tag-brand { top: -38px; left: clamp(-32px, -3.2vw, -10px); }
+  .tag-illustration { top: -44px; right: clamp(-32px, -3.2vw, -10px); }
+  .tag-frontend { bottom: -32px; left: clamp(-32px, -3.2vw, -10px); }
+  .tag-mobile { bottom: -36px; right: clamp(-32px, -3.2vw, -10px); }
+  .hero-copy { width: min(100%, 460px); font-size: clamp(18px, 2.6vw, 24px); line-height: 1.55; margin: 0 0 24px; }
+  .hero-actions { gap: 20px; }
+  .resume-note { font-size: 21px; line-height: 1.5; }
+  .availability { max-width: 100%; flex-wrap: wrap; justify-content: center; font-size: 10px; line-height: 1.8; gap: 5px 8px; letter-spacing: 0; }
+  .hero-pencil { top: 28px; left: 10%; width: 70px; }
+  .hero-star { top: 26px; right: 13%; left: auto; width: 58px; }
+  .hero-bus { left: 8%; bottom: 75px; width: 105px; }
+  .hero-coin { top: auto; right: 7%; bottom: 100px; width: 70px; }
+  .hero-mug { right: 34%; bottom: 75px; width: 68px; }
+  .hero-phone { right: 8%; bottom: 24px; width: 58px; }
+  .hero-bike { left: 30%; bottom: 16px; width: 78px; }
+  .hero-sticker-note { bottom: 22px; right: 24%; font-size: 16px; }
+
+  /* About: keep the paper composition, with room for rotations and shadows. */
+  .scrapbook-about {
+    --about-margin-line: clamp(10px, 2vw, 18px);
+    min-height: 0;
+    padding: 72px var(--compact-gutter);
+    background-image:
+      linear-gradient(to right, transparent var(--about-margin-line), #ffb6b6 var(--about-margin-line), #ffb6b6 calc(var(--about-margin-line) + 2px), transparent calc(var(--about-margin-line) + 2px)),
+      repeating-linear-gradient(to bottom, transparent 0, transparent 37px, #dfebf5 38px, #dfebf5 39px);
+  }
+  .scrapbook-about .scrapbook-layout { width: 100%; max-width: 960px; grid-template-columns: minmax(160px, .65fr) minmax(0, 1.65fr); gap: 36px 32px; }
+  .scrapbook-about .scrapbook-layout > * { min-width: 0; }
+  .scrapbook-about .about-polaroid { width: 100%; max-width: 230px; justify-self: center; margin: 30px 0 8px; }
+  .scrapbook-about .about-polaroid figcaption { font-size: 18px; line-height: 1.5; text-wrap: balance; }
+  .scrapbook-about .portrait-placeholder-label { padding-inline: 6px; font-size: 8px; line-height: 1.6; text-align: center; }
+  .scrapbook-about .about-notebook { width: 100%; height: auto; padding: 44px clamp(20px, 3vw, 30px) 30px; box-shadow: 5px 6px 0 var(--ink); }
+  .scrapbook-about .about-notebook h2 { font-size: clamp(32px, 4.2vw, 42px); line-height: 1.15; overflow-wrap: break-word; margin-bottom: 20px; }
+  .scrapbook-about .notebook-copy { font-size: 16px; line-height: 1.8; overflow-wrap: break-word; }
+  .scrapbook-about .notebook-copy p { margin: 0 0 20px; }
+  .scrapbook-about .notebook-copy p:last-child { margin-bottom: 0; }
+  .scrapbook-about .notebook-now { font-size: 20px; line-height: 1.55; overflow-wrap: break-word; }
+  .scrapbook-about .notebook-holes { gap: 3px; }
+  .scrapbook-about .notebook-holes i { flex: 0 1 10px; width: 10px; height: auto; aspect-ratio: 1; }
+  .scrapbook-about .notebook-skills { gap: 12px 10px; margin: 26px 0 24px; }
+  .scrapbook-about .skill-sticker { max-width: 100%; white-space: normal; font-size: 12px; line-height: 1.4; padding: 8px 10px; overflow-wrap: break-word; }
+  .scrapbook-about .about-sticky-notes { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 24px; padding: 8px 4px 4px; }
+  .scrapbook-about .about-sticky-note { min-width: 0; padding: 22px 18px 30px; }
+  .scrapbook-about .about-sticky-note:last-child { grid-column: auto; max-width: none; width: auto; justify-self: stretch; }
+  .scrapbook-about .about-sticky-note strong { max-width: none; font-size: clamp(28px, 3.6vw, 36px); line-height: 1.15; overflow-wrap: break-word; }
+  .scrapbook-about .about-sticky-note p { font-size: 15px; line-height: 1.65; margin-top: 12px; overflow-wrap: break-word; }
+
+  /* Compact carousel: intrinsic grid rows reserve the tallest sheet's height. */
+  .creative-desk { height: auto !important; min-height: 0; }
+  .desk-stage { position: relative; top: auto; height: auto; min-height: 0; padding: 64px var(--compact-gutter); overflow: visible; }
+  .desk-heading { align-items: flex-start; gap: 24px; margin-bottom: 40px; }
+  .desk-heading h2 { font-size: clamp(40px, 6vw, 60px); line-height: 1.05; }
+  .desk-heading h2 br { display: block; }
+  .desk-heading h2 em { margin-left: 0; }
+  .desk-heading-note { display: flex; gap: 12px; max-width: 230px; }
+  .desk-asterisk { font-size: 40px; }
+  .desk-heading-note p { font-size: 20px; line-height: 1.3; }
+  .desk-surface { display: block; flex: none; min-width: 0; }
+  .desk-sheet-stack { display: grid; height: auto; }
+  .desk-sheet-stack::before, .desk-sheet-stack::after {
+    content: "";
+    position: absolute;
+    inset: 5px 6px -10px;
+    z-index: 0;
+    border: 1.5px solid #393b31;
+    border-radius: 4px 14px 14px 4px;
+    background: #f1f0e5;
+    box-shadow: 2px 3px 0 #34382d15;
+    transform: rotate(.6deg);
+    pointer-events: none;
+  }
+  .desk-sheet-stack::after { inset: 8px 5px -18px; z-index: -1; background: #e4e8d9; transform: rotate(-.5deg); }
+  .desk-sheet {
+    position: relative;
+    inset: auto;
+    grid-area: 1 / 1;
+    min-width: 0;
+    padding: 22px;
+    transform: none;
+    visibility: hidden;
+    pointer-events: none;
+    will-change: auto;
+    scroll-margin-top: calc(var(--compact-header) + 20px);
+  }
+  .desk-sheet:nth-child(n) { transform: none; z-index: 2; }
+  .desk-sheet[data-active="true"] { visibility: visible; pointer-events: auto; }
+  .sheet-meta, .sheet-footer { flex-wrap: wrap; gap: 8px 16px; font-size: 8px; line-height: 1.7; }
+  .sheet-meta > span:last-child { max-width: none; text-align: left; }
+  .sheet-body { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; padding-block: 28px; }
+  .desk-art { width: 100%; max-width: none; margin: 0; }
+  .desk-preview { min-height: 0; padding: 18px; }
+  .preview-nav { flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .desk-preview h4 { font-size: clamp(26px, 3.8vw, 34px); }
+  .desk-browser-toolbar > span { min-width: 0; overflow-wrap: anywhere; font-size: 7px; }
+  .desk-browser-toolbar i { flex: none; }
+  .desk-handnote { position: relative; right: auto; bottom: auto; width: fit-content; max-width: calc(100% - 16px); margin: -12px 0 0 auto; font-size: 20px; }
+  .desk-swatches { flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+  .desk-story h3 { font-size: clamp(26px, 3.5vw, 34px); line-height: 1.15; overflow-wrap: anywhere; }
+  .desk-story dl > div { grid-template-columns: minmax(0, 1fr); gap: 5px; padding-block: 12px; }
+  .desk-story dt { font-size: 10px; }
+  .desk-story dd { font-size: 14px; line-height: 1.7; }
+  .desk-project-kind { font-size: 10px; line-height: 1.6; }
+  .desk-tools { gap: 8px; margin-top: 18px; }
+  .desk-tools > span { max-width: 100%; font-size: 10px; overflow-wrap: anywhere; }
+  .desk-open { min-height: 48px; width: 100%; padding: 12px 16px; margin-top: 22px; font-size: 13px; }
+  .desk-controls { flex-wrap: wrap; justify-content: center; margin-top: 36px; gap: 24px; }
+  .desk-folders { width: 100%; min-width: 0; display: flex; gap: 12px; overflow-x: auto; overscroll-behavior-x: contain; padding: 12px 5px 10px; scroll-padding-inline: 5px; scrollbar-width: thin; scrollbar-color: #7d8671 transparent; }
+  .desk-folder { flex: 0 0 auto; min-width: 175px; min-height: 48px; justify-content: flex-start; padding: 12px 16px; gap: 10px; font-size: 12px; text-align: left; white-space: nowrap; }
+  .desk-folder > i { display: none; }
+  .desk-arrows button { width: 44px; height: 44px; }
+  .desk-arrows { gap: 20px; }
+
+  /* Career passport: a balanced tablet intro and content-sized journal entries. */
+  .career-chapters { padding: 72px var(--compact-gutter); }
+  .career-chapters .career-layout { grid-template-columns: minmax(0, 1fr); max-width: 900px; gap: 52px; }
+  .career-chapters .career-intro { position: relative; top: auto; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(220px, .8fr); column-gap: clamp(28px, 5vw, 48px); align-items: start; }
+  .career-chapters .career-intro > :not(.passport-cover) { grid-column: 1; min-width: 0; }
+  .career-chapters .career-eyebrow { font-size: 10px; line-height: 1.8; letter-spacing: .1em; color: #66715f; }
+  .career-chapters .career-intro h2 { font-size: clamp(34px, 4.6vw, 44px); line-height: 1.18; margin: 18px 0; text-wrap: balance; }
+  .career-chapters .career-intro > p:not(.passport-caption) { font-size: 16px; line-height: 1.8; max-width: 38ch; margin-bottom: 22px; color: #626e61; }
+  .career-chapters .passport-cover { grid-column: 2; grid-row: 1 / 6; width: min(calc(100% - 18px), 270px); justify-self: center; margin: 16px 0 20px; }
+  .career-chapters .passport-cover-border { padding: 18px 14px; }
+  .career-chapters .passport-cover-top { font-size: 7px; line-height: 1.6; letter-spacing: .06em; gap: 10px; }
+  .career-chapters .passport-cover-title { font-size: 27px; line-height: 1.2; }
+  .career-chapters .passport-holder small, .career-chapters .passport-holder > span { font-size: 8px; line-height: 1.6; letter-spacing: .05em; }
+  .career-chapters .passport-holder strong { font-size: 28px; line-height: 1.3; }
+  .career-chapters .passport-available { font-size: 8px; line-height: 1.6; padding: 9px 5px; letter-spacing: 0; }
+  .career-chapters .passport-available i { flex: none; }
+  .career-chapters .career-years { max-width: none; flex-wrap: wrap; gap: 10px; margin-top: 0; }
+  .career-chapters .career-years button { flex: 0 1 auto; min-width: 88px; min-height: 46px; padding: 10px 18px; font-size: 12px; line-height: 1.5; }
+  .career-chapters .year-marker { flex: none; }
+  .career-chapters .passport-caption { text-align: left; font-size: 22px; line-height: 1.5; margin: 18px 0 0; color: #738168; }
+  .career-chapters .career-entries { --career-track-gap: 26px; min-width: 0; padding-left: var(--career-track-gap); }
+  .career-chapters .career-track { top: 31px; }
+  .career-chapters .career-node { top: 25px; left: calc(-1 * var(--career-track-gap) - 6px); }
+  .career-chapters .career-entry {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 124px;
+    grid-template-areas: "meta meta" "label stamp" "title stamp" "company stamp" "summary summary" "impact impact" "toggle toggle" "details details";
+    column-gap: 24px;
+    padding: 28px;
+    margin-bottom: 28px;
+    scroll-margin-top: calc(var(--compact-header) + 20px);
+  }
+  .career-chapters .career-entry > :not(.career-node) { min-width: 0; }
+  .career-chapters .chapter-top { grid-area: meta; flex-wrap: wrap; gap: 8px 14px; margin-bottom: 24px; }
+  .career-chapters .chapter-date { font-size: 11px; line-height: 1.6; color: #63725b; }
+  .career-chapters .chapter-number { font-size: 9px; line-height: 1.6; letter-spacing: .08em; }
+  .career-chapters .career-entry .passport-stamp { grid-area: stamp; position: relative; top: auto; right: auto; align-self: start; justify-self: end; width: 116px; height: 70px; margin: 8px 4px 18px 0; }
+  .career-chapters .passport-stamp > span { font-size: 7px; line-height: 1.6; letter-spacing: .1em; }
+  .career-chapters .passport-stamp small { font-size: 5px; line-height: 1.6; letter-spacing: 0; }
+  .career-chapters .chapter-label { grid-area: label; max-width: none; min-height: 0; margin: 0 0 12px; font-size: 11px; line-height: 1.7; color: #68775f; overflow-wrap: anywhere; }
+  .career-chapters .chapter-current { font-size: 9px; margin-top: 7px; }
+  .career-chapters .career-entry h3 { grid-area: title; font-size: clamp(25px, 3.7vw, 32px); line-height: 1.2; margin: 0 0 8px; overflow-wrap: break-word; text-wrap: balance; }
+  .career-chapters .chapter-company { grid-area: company; font-size: 28px; line-height: 1.3; margin-bottom: 24px; }
+  .career-chapters .chapter-summary { grid-area: summary; font-size: 16px; line-height: 1.8; margin-bottom: 24px; color: #65715f; }
+  .career-chapters .chapter-impact { grid-area: impact; padding: 14px 16px; margin-bottom: 16px; }
+  .career-chapters .chapter-impact small { font-size: 9px; line-height: 1.6; letter-spacing: .08em; }
+  .career-chapters .chapter-impact p { font-size: 15px; line-height: 1.8; }
+  .career-chapters .chapter-toggle { grid-area: toggle; min-height: 50px; gap: 14px; font-size: 14px; text-align: left; }
+  .career-chapters .chapter-toggle-icon { flex: none; width: 32px; height: 32px; }
+  .career-chapters .chapter-details { grid-area: details; padding-top: 16px; }
+  .career-chapters .chapter-details ul { padding-left: 18px; font-size: 15px; line-height: 1.85; margin-bottom: 20px; color: #65715f; }
+  .career-chapters .chapter-details li { padding-block: 4px; overflow-wrap: break-word; }
+  .career-chapters .chapter-tools { gap: 8px; }
+  .career-chapters .chapter-tools span { max-width: 100%; font-size: 11px; line-height: 1.5; padding: 7px 9px; overflow-wrap: anywhere; }
+  .career-chapters .chapter-details > a { display: inline-flex; align-items: center; min-height: 46px; padding-block: 12px; font-size: 14px; line-height: 1.6; }
+  .career-chapters .passport-education { padding: 28px; margin-top: 32px; }
+  .career-chapters .passport-education > h3 { font-size: 26px; line-height: 1.2; margin-top: 16px; }
+  .career-chapters .passport-education > article { gap: 14px; padding-block: 20px; }
+  .career-chapters .passport-education article > div { min-width: 0; }
+  .career-chapters .passport-education h4 { font-size: 16px; line-height: 1.5; overflow-wrap: break-word; }
+  .career-chapters .passport-education article p { font-size: 14px; line-height: 1.8; }
+  .career-chapters .education-icon { width: 30px; height: 30px; }
+  .career-chapters .education-period, .career-chapters .education-detail { max-width: 100%; font-size: 11px; line-height: 1.6; overflow-wrap: anywhere; }
+  .career-chapters .passport-education .certification-title { font-size: 23px; margin-top: 32px; }
+  .career-chapters .career-next { gap: 16px; padding: 24px; align-items: flex-start; }
+  .career-chapters .career-next > div { min-width: 0; }
+  .career-chapters .career-next small { font-size: 9px; line-height: 1.6; letter-spacing: .1em; }
+  .career-chapters .career-next p { font-size: 25px; line-height: 1.35; margin-block: 8px; }
+  .career-chapters .career-next a { display: inline-flex; align-items: center; min-height: 46px; font-size: 14px; line-height: 1.6; }
+
+  .toolkit-section { padding: 72px var(--compact-gutter); }
+  .toolkit-section .toolkit-inner { max-width: 960px; min-width: 0; }
+  .toolkit-section .toolkit-heading { display: flex; gap: 28px; align-items: center; margin-bottom: 32px; }
+  .toolkit-section .toolkit-eyebrow { font-size: 10px; line-height: 1.8; letter-spacing: .08em; color: #65745e; }
+  .toolkit-section .toolkit-heading h2 { font-size: clamp(40px, 5.5vw, 56px); line-height: 1.1; text-wrap: balance; }
+  .toolkit-section .toolkit-header-note { flex: 0 1 240px; min-width: 0; gap: 12px; }
+  .toolkit-section .toolkit-header-note > span { flex: none; font-size: 36px; }
+  .toolkit-section .toolkit-header-note p { font-size: 22px; line-height: 1.35; color: #69755f; }
+  .toolkit-section .toolkit-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; padding: 22px; }
+  .toolkit-section .tool-compartment { padding: 24px; }
+  .toolkit-section .tool-card-top { margin-bottom: 20px; }
+  .toolkit-section .tool-compartment h3 { font-size: 24px; line-height: 1.25; margin-bottom: 12px; overflow-wrap: break-word; }
+  .toolkit-section .tool-compartment > p { font-size: 15px; line-height: 1.8; min-height: 0; margin-bottom: 20px; }
+  .toolkit-section .tool-chips { gap: 8px; margin-bottom: 24px; }
+  .toolkit-section .tool-chips li { min-width: 0; max-width: 100%; font-size: 11px; line-height: 1.5; padding: 7px 9px; overflow-wrap: anywhere; }
+  .toolkit-section .tool-project-link { min-height: 50px; align-items: center; font-size: 13px; line-height: 1.6; padding-block: 14px 4px; }
+  .toolkit-section .tool-project-link span { flex: none; }
+  .toolkit-section .toolbox-rail { flex-wrap: wrap; gap: 10px 20px; padding: 18px 22px; font-size: 9px; line-height: 1.7; letter-spacing: .06em; }
+  .toolkit-section .toolbox-rail > span { min-width: 0; }
+  .toolkit-section .toolbox-rail > span:last-child { display: inline; }
+  .toolkit-section .toolbox-rail i { flex: none; }
+  .toolkit-section .toolbox-footer { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 6px 24px 24px; }
+  .toolkit-section .toolbox-footer p { min-width: 0; font-size: 21px; line-height: 1.4; }
+  .toolkit-section .toolbox-footer a { display: inline-flex; align-items: center; min-height: 46px; max-width: 200px; margin: 0; font-size: 12px; line-height: 1.7; }
+
+  .contact { min-height: calc(100svh - var(--compact-header)); padding: 64px var(--compact-gutter) 28px; }
+  .contact > * { min-width: 0; max-width: 100%; }
+  .contact .section-index { max-width: calc(100% - 64px); margin-bottom: 44px; font-size: 11px; line-height: 1.6; }
+  .contact .eyebrow { font-size: 24px; line-height: 1.5; text-wrap: balance; }
+  .contact h2 { width: min(100%, 780px); font-size: clamp(42px, 7.8vw, 80px); line-height: 1.12; text-wrap: balance; }
+  .contact .contact-copy { max-width: min(100%, 460px); font-size: 16px; line-height: 1.8; margin-block: 24px 28px; }
+  .contact .contact-button { min-height: 56px; }
+  .contact .contact-star { width: 50px; top: 24px; right: var(--compact-gutter); }
+  .contact .social-links { gap: 8px 24px; margin: 24px 0 40px; }
+  .contact .social-links a { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; padding: 6px 4px; font-size: 14px; line-height: 1.6; }
+  .contact footer { grid-template-columns: auto minmax(0, 1fr) auto; gap: 12px 20px; padding-top: 24px; }
+  .contact footer .footer-brand { width: 44px; height: 44px; font-size: 14px; }
+  .contact footer > span:first-of-type { font-size: 12px; line-height: 1.7; }
+  .contact footer > a:last-of-type { display: inline-flex; align-items: center; min-height: 48px; grid-column: 3; grid-row: 1; white-space: nowrap; font-size: 13px; }
+  .contact footer > span:last-child { grid-column: 2 / -1; font-size: 12px; line-height: 1.7; }
+
+  .modal-backdrop { padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left)); overflow-y: auto; overscroll-behavior: contain; }
+  .modal-backdrop .project-modal { width: min(600px, 100%); min-width: 0; max-height: calc(100svh - 32px - env(safe-area-inset-top) - env(safe-area-inset-bottom)); overflow-y: auto; overscroll-behavior: contain; scrollbar-gutter: stable; padding: 64px clamp(20px, 4vw, 32px) 28px; box-shadow: 4px 5px 0 var(--ink); }
+  .modal-backdrop .modal-close { width: 44px; height: 44px; top: 10px; right: 10px; }
+  .modal-backdrop .project-modal h2 { font-size: clamp(30px, 6vw, 48px); line-height: 1.15; margin-block: 20px 16px; overflow-wrap: break-word; }
+  .modal-backdrop .modal-kicker { font-size: 11px; line-height: 1.8; overflow-wrap: anywhere; }
+  .modal-backdrop .modal-lead { font-size: 17px; line-height: 1.65; }
+  .modal-backdrop .modal-detail { font-size: 15px; line-height: 1.85; }
+  .modal-backdrop .modal-tools { gap: 8px; }
+  .modal-backdrop .modal-tools span { max-width: 100%; font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+  .modal-backdrop .modal-footnote { font-size: 12px; line-height: 1.7; }
+  .modal-backdrop .modal-footnote a { display: inline-flex; align-items: center; min-height: 46px; font-size: 14px; }
+  .modal-backdrop .modal-close:focus-visible, .modal-backdrop a:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+}
+
+@media (max-width: 767px) {
+  .header-cta { display: none; }
+  .mobile-talk { display: grid; place-items: center; background: var(--orange); border: 2px solid var(--ink); border-radius: 11px; box-shadow: 2px 3px var(--ink); font-size: 22px; color: var(--ink); text-decoration: none; }
+  .scrapbook-about { padding-block: 64px; }
+  .scrapbook-about .scrapbook-layout { grid-template-columns: minmax(0, 1fr); gap: 44px; max-width: 580px; }
+  .scrapbook-about .about-polaroid { width: min(72%, 230px); margin: 8px 0 4px; }
+  .scrapbook-about .portrait-initials { font-size: 86px; }
+  .scrapbook-about .about-notebook { padding: 44px clamp(18px, 4vw, 28px) 28px; }
+  .scrapbook-about .about-notebook h2 { font-size: clamp(28px, 6.8vw, 38px); }
+  .scrapbook-about .about-sticky-notes { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 24px; padding: 4px 6px; }
+  .scrapbook-about .about-sticky-note:last-child { grid-column: 1 / -1; width: min(100%, 300px); justify-self: center; }
+  .scrapbook-about .about-sticky-note strong { font-size: 32px; }
+  .sheet-body { grid-template-columns: minmax(0, 1fr); gap: 30px; }
+  .desk-heading { flex-direction: column; gap: 22px; margin-bottom: 30px; }
+  .desk-heading-note { max-width: none; align-items: center; }
+  .desk-asterisk { margin-bottom: 0; }
+  .desk-art { max-width: 460px; margin-inline: auto; }
+  .desk-preview h4 { font-size: 32px; }
+  .desk-story dl > div { grid-template-columns: 85px minmax(0, 1fr); gap: 14px; }
+  .desk-story h3 { font-size: 32px; }
+  .career-chapters { padding-block: 56px; }
+  .career-chapters .career-layout { max-width: 620px; gap: 44px; }
+  .career-chapters .career-intro { display: flex; flex-direction: column; align-items: center; }
+  .career-chapters .career-intro > :not(.passport-cover) { align-self: stretch; }
+  .career-chapters .career-intro h2 { font-size: clamp(32px, 7vw, 42px); }
+  .career-chapters .career-intro > p:not(.passport-caption) { max-width: 42ch; margin-bottom: 12px; }
+  .career-chapters .passport-cover { width: min(calc(100% - 24px), 260px); margin: 28px 0 32px; }
+  .career-chapters .career-years { justify-content: center; }
+  .career-chapters .passport-caption { text-align: center; margin-top: 16px; }
+  .career-chapters .career-entries { --career-track-gap: 20px; }
+  .career-chapters .career-entry { grid-template-columns: minmax(0, 1fr); grid-template-areas: "meta" "stamp" "label" "title" "company" "summary" "impact" "toggle" "details"; padding: clamp(18px, 4vw, 26px); }
+  .career-chapters .career-entry .passport-stamp { margin: 4px 6px 24px 0; }
+  .career-chapters .career-entry h3 { font-size: clamp(25px, 5vw, 30px); }
+  .career-chapters .passport-education { padding: clamp(18px, 4vw, 26px); }
+  .career-chapters .passport-education > h3 { font-size: 24px; }
+  .career-chapters .career-next { padding: 22px 18px; gap: 12px; }
+  .career-chapters .next-destination { flex: none; font-size: 28px; }
+  .toolkit-section { padding-block: 56px; }
+  .toolkit-section .toolkit-heading { display: block; }
+  .toolkit-section .toolkit-header-note { margin-top: 22px; max-width: 320px; }
+  .toolkit-section .toolkit-grid { gap: 16px; padding: 18px; }
+  .toolkit-section .tool-compartment { padding: 20px; }
+  .toolkit-section .toolbox-footer { grid-template-columns: auto minmax(0, 1fr); gap: 8px 12px; padding-inline: 20px; }
+  .toolkit-section .toolbox-footer a { grid-column: 2; max-width: none; }
+}
+
+@media (max-width: 639px) {
+  :root { --compact-header: 68px; --compact-gutter: clamp(20px, 5.5vw, 32px); }
+  .topbar { grid-template-columns: auto minmax(0, 1fr) auto; grid-template-rows: 1fr; gap: 12px; padding-inline: 16px; }
+  .topbar > .brand { width: 40px; height: 40px; font-size: 14px; }
+  .topbar .mobile-menu-toggle { display: inline-flex; grid-column: 3; grid-row: 1; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; border: 2px solid var(--ink); border-radius: 11px; background: var(--paper); color: var(--ink); box-shadow: 2px 3px 0 var(--ink); cursor: pointer; }
+  .topbar[data-menu-open="true"] .mobile-menu-toggle { background: var(--yellow); }
+  .topbar nav { display: none; position: absolute; top: calc(100% + 8px); inset-inline: 12px; width: auto; padding: 12px; gap: 8px; max-height: calc(100dvh - 92px); overflow-y: auto; overscroll-behavior: contain; background: var(--paper); border: 2px solid var(--ink); border-radius: 14px; box-shadow: 3px 4px 0 var(--ink); }
+  .topbar[data-menu-open="true"] nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .topbar nav a { min-height: 48px; padding: 12px 8px; font-size: 14px; border-radius: 9px; }
+  .mobile-talk { grid-column: 2; grid-row: 1; justify-self: end; min-width: 44px; min-height: 44px; width: 44px; height: 44px; }
+  .hero { min-height: max(800px, calc(100svh - var(--compact-header))); padding-block: 118px 220px; }
+  .hero-actions { flex-direction: column; gap: 20px; width: 100%; }
+  .hero-actions .button { width: min(100%, 280px); }
+  .hero .tag { font-size: clamp(12px, 3.2vw, 17px); padding: 6px 8px; }
+  .hero-title-wrap { padding-inline: 8px; }
+  .hero-intro { font-size: 32px; }
+  .hero-copy { font-size: 18px; max-width: 370px; }
+  .desktop-break { display: none; }
+  .resume-note { max-width: 100%; font-size: 20px; }
+  .availability { font-size: 10px; padding: 10px 12px; }
+  .hero-bus { width: 86px; left: 5%; bottom: 98px; }
+  .hero-coin { width: 60px; right: 5%; bottom: 120px; }
+  .hero-mug { width: 60px; right: 35%; bottom: 94px; }
+  .hero-bike { width: 72px; left: 12%; bottom: 26px; }
+  .hero-sticker-note { bottom: 32px; right: 24%; font-size: 14px; max-width: 130px; }
+  .desk-stage { padding-block: 56px; }
+  .desk-heading { flex-direction: column; gap: 22px; margin-bottom: 30px; }
+  .desk-heading h2 { font-size: clamp(40px, 9vw, 52px); }
+  .desk-heading-note { display: flex; max-width: none; align-items: center; }
+  .desk-heading-note p { font-size: 20px; max-width: 280px; }
+  .desk-asterisk { font-size: 36px; margin-bottom: 0; }
+  .desk-sheet { padding: 20px 18px; }
+  .sheet-body { padding-block: 24px; gap: 28px; }
+  .desk-story dl > div { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .desk-story h3 { font-size: 30px; }
+  .desk-preview { padding: 16px; }
+  .desk-preview h4 { font-size: 28px; }
+  .desk-swatches > span { font-size: 16px; }
+  .desk-folders { gap: 12px; }
+  .desk-folder { font-size: 12px; line-height: 1.5; padding: 12px 14px; }
+  .desk-eyebrow, .career-eyebrow, .toolkit-eyebrow { font-size: 9px; line-height: 1.8; letter-spacing: .08em; }
+  .toolkit-section .toolkit-heading h2 { font-size: clamp(36px, 8.8vw, 48px); }
+  .toolkit-section .toolkit-grid { grid-template-columns: minmax(0, 1fr); padding: 16px; gap: 18px; }
+  .toolkit-section .tool-compartment { padding: 22px; }
+  .toolkit-section .toolbox { box-shadow: 3px 4px 0 #334438; }
+  .toolkit-section .toolbox-rail { padding: 16px 18px; }
+  .toolkit-section .toolbox-rail > span:last-child { font-size: 9px; }
+  .toolkit-section .toolbox-footer { padding-inline: 18px; }
+  .contact { padding-block: 52px 24px; }
+  .contact h2 { font-size: clamp(40px, 9vw, 58px); }
+  .contact .eyebrow { font-size: 22px; }
+  .contact .contact-button { width: min(100%, 280px); }
+  .contact .social-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: min(100%, 360px); gap: 4px 16px; }
+  .contact .social-links > a:last-child { grid-column: 1 / -1; }
+  .contact footer { grid-template-columns: auto minmax(0, 1fr); gap: 12px 16px; }
+  .contact footer > a:last-of-type { grid-column: 1 / -1; grid-row: 2; justify-self: center; }
+  .contact footer > span:last-child { grid-column: 1 / -1; text-align: center; }
+}
+
+@media (max-width: 374px) {
+  .topbar { padding-inline: 12px; }
+  .hero-title-wrap h1 { font-size: 10.5vw; }
+  .hero .tag { font-size: 11px; padding: 6px; }
+  .desk-sheet { padding-inline: 16px; }
+  .desk-preview { padding: 12px; }
+  .desk-preview h4 { font-size: 24px; }
+  .preview-brand-art { padding-inline: 8px; }
+  .preview-brand-art > span { font-size: 72px; }
+  .preview-brand-art > i { font-size: 64px; }
+  .preview-brand-art small { left: 8px; letter-spacing: 0; }
+  .toolkit-section .toolkit-grid { padding: 12px; }
+  .toolkit-section .tool-compartment { padding: 18px; }
+}
+
+@media (max-width: 479px) {
+  .scrapbook-about { padding-block: 56px; }
+  .scrapbook-about .scrapbook-layout { gap: 38px; }
+  .scrapbook-about .about-sticky-notes { grid-template-columns: minmax(0, 1fr); width: min(100%, 310px); gap: 24px; justify-self: center; padding-inline: 6px; }
+  .scrapbook-about .about-sticky-note { padding: 22px 22px 30px; transform: rotate(1.5deg); }
+  .scrapbook-about .about-sticky-note:nth-child(2) { transform: rotate(-1.5deg); }
+  .scrapbook-about .about-sticky-note:last-child { grid-column: auto; width: 100%; }
+}
+
+@media (max-width: 1023px) and (hover: none) {
+  .button:hover, .about-polaroid:hover, .about-sticky-note:hover,
+  .tool-compartment:hover, .desk-folder:hover, .desk-open:hover { transform: none; translate: none; }
+}

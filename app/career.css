@@ -1,0 +1,662 @@
+/* Career Passport */
+.career-chapters {
+  --passport-ink: #24364a;
+  position: relative;
+  z-index: 4;
+  padding: var(--section-space) var(--page-gutter);
+  border-top: 2px solid var(--passport-ink);
+  border-radius: 22px 22px 0 0;
+  background: #f5f2e9;
+  color: var(--passport-ink);
+  scroll-margin-top: 20px;
+}
+
+.career-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.3fr);
+  align-items: start;
+  gap: clamp(36px, 5vw, 80px);
+  max-width: var(--content-max);
+  margin-inline: auto;
+}
+
+.career-intro,
+.career-intro-copy,
+.passport-identity,
+.career-entries {
+  min-width: 0;
+}
+
+.career-eyebrow {
+  display: block;
+  font: 10px/1.6 var(--font-geist-mono), monospace;
+  letter-spacing: 0.12em;
+  color: #666f60;
+}
+
+.career-intro h2 {
+  margin: 18px 0;
+  font-size: clamp(34px, 3.1vw, 45px);
+  font-weight: 780;
+  line-height: 1.12;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+
+.career-intro h2 em {
+  font: 700 1.17em/1.1 "Work Caveat", cursive;
+  letter-spacing: -0.035em;
+  color: #47775e;
+}
+
+.career-intro-copy > p {
+  max-width: 34ch;
+  margin: 0 0 32px;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #626c60;
+}
+
+.passport-identity {
+  width: min(100%, 300px);
+}
+
+.passport-cover {
+  width: calc(100% - 12px);
+  margin-inline: 6px;
+  padding: 13px 12px 13px 17px;
+  border-radius: 6px 17px 17px 6px;
+  background: radial-gradient(#ffffff0b 0.6px, transparent 0.6px), linear-gradient(115deg, #17283b, #293e52);
+  background-size: 4px 4px, 100% 100%;
+  color: #c9b67f;
+  box-shadow: inset 5px 0 7px #0005, 3px 3px 0 #d5d1be, 5px 5px 0 #e7e3d6, 7px 8px 0 #1c2e41, 8px 18px 23px #23364b26;
+  transform: rotate(-3deg);
+}
+
+.passport-cover-border {
+  padding: 18px 15px;
+  border: 1px solid #c9b67f50;
+  border-radius: 4px 11px 11px 4px;
+  text-align: center;
+}
+
+.passport-cover-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font: 7px/1.5 var(--font-geist-mono), monospace;
+  letter-spacing: 0.08em;
+  color: #c9be9a;
+}
+
+.passport-emblem {
+  display: block;
+  width: 68px;
+  height: 68px;
+  margin: 20px auto 14px;
+  stroke: #bdaa74;
+  stroke-width: 1.2;
+}
+
+.passport-cover-title {
+  font-size: 28px;
+  line-height: 1.15;
+  letter-spacing: 0.13em;
+  font-weight: 500;
+}
+
+.passport-holder {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 23px;
+  padding-top: 16px;
+  border-top: 1px solid #c9b67f30;
+}
+
+.passport-holder small {
+  font: 8px/1.5 var(--font-geist-mono), monospace;
+  letter-spacing: 0.1em;
+  color: #c4c3a8;
+}
+
+.passport-holder strong {
+  font: 600 28px/1.2 "Work Caveat", cursive;
+  color: #e7d7a6;
+}
+
+.passport-holder > span {
+  font: 8px/1.5 var(--font-geist-mono), monospace;
+  letter-spacing: 0.04em;
+}
+
+.passport-available {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 20px;
+  padding: 9px 4px;
+  border: 1px solid #9aae9070;
+  border-radius: 3px;
+  font: 8px/1.5 var(--font-geist-mono), monospace;
+  color: #c9d8b9;
+}
+
+.passport-available i {
+  flex: none;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #c9d8b9;
+}
+
+.career-years {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 30px;
+}
+
+.career-years button {
+  display: flex;
+  flex: 1 1 70px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 10px;
+  border: 1px solid #c4cbbb;
+  border-radius: 6px;
+  background: transparent;
+  color: #5e6a56;
+  font: 12px/1.4 var(--font-geist-mono), monospace;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.career-years small {
+  display: none;
+}
+
+.year-marker {
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+}
+
+.career-years button[aria-current="step"] {
+  border-color: #24364a;
+  background: #24364a;
+  color: #f0e5c6;
+}
+
+.career-years button[aria-current="step"] .year-marker {
+  background: #e0c581;
+}
+
+.passport-caption {
+  margin: 17px 0 0;
+  font: 600 22px/1.4 "Work Caveat", cursive;
+  color: #69735d;
+  text-align: center;
+}
+
+.career-entries {
+  --track-inset: 28px;
+  position: relative;
+  padding-left: var(--track-inset);
+}
+
+.career-track {
+  position: absolute;
+  top: 27px;
+  bottom: 75px;
+  left: 0;
+  width: 2px;
+  background: repeating-linear-gradient(to bottom, #c9cfbf 0 5px, transparent 5px 11px);
+  overflow: hidden;
+}
+
+.career-track > div {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(to bottom, #47775e 0 5px, transparent 5px 11px);
+  transform-origin: top;
+  transform: scaleY(0);
+}
+
+.career-entry {
+  --stamp: #456c54;
+  position: relative;
+  margin-bottom: 28px;
+  padding: clamp(20px, 2.3vw, 32px);
+  border: 1px solid #d2d8c7;
+  border-radius: 4px 12px 12px 4px;
+  background: repeating-linear-gradient(to bottom, transparent 0, transparent 31px, #dde3dc55 32px, #dde3dc55 33px), #fffdf6;
+  box-shadow: 3px 5px 0 #24364a07;
+  scroll-margin-top: 20px;
+}
+
+.career-entry.entry-1 { --stamp: #9a5f3c; }
+.career-entry.entry-2 { --stamp: #4e708b; }
+
+.career-node {
+  position: absolute;
+  z-index: 1;
+  top: 25px;
+  left: calc(-1 * var(--track-inset) - 5px);
+  width: 11px;
+  height: 11px;
+  border: 2px solid #a6b29d;
+  border-radius: 50%;
+  background: #f5f2e9;
+  transition: background 0.25s;
+}
+
+.is-current .career-node {
+  border-color: #47775e;
+  background: #47775e;
+  box-shadow: 0 0 0 5px #f5f2e9;
+}
+
+.chapter-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-bottom: 24px;
+  font: 10px/1.5 var(--font-geist-mono), monospace;
+  color: #5f6f59;
+}
+
+.chapter-number {
+  font-size: 9px;
+  letter-spacing: 0.08em;
+}
+
+.chapter-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  min-height: 72px;
+  margin-bottom: 24px;
+}
+
+.chapter-label {
+  margin: 0;
+  font: 11px/1.7 var(--font-geist-mono), monospace;
+  color: #627059;
+  overflow-wrap: anywhere;
+}
+
+.chapter-current {
+  display: block;
+  margin-top: 7px;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: #356644;
+}
+
+.passport-stamp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  width: 124px;
+  min-height: 72px;
+  padding: 10px 7px;
+  border: 2px solid var(--stamp);
+  outline: 1px solid var(--stamp);
+  outline-offset: -6px;
+  border-radius: 5px;
+  background: #fffdf6;
+  color: var(--stamp);
+  opacity: 0.8;
+  transform: rotate(7deg);
+  pointer-events: none;
+}
+
+.passport-stamp > span {
+  font: 7px/1.4 var(--font-geist-mono), monospace;
+  letter-spacing: 0.12em;
+}
+
+.passport-stamp strong {
+  font: 700 25px/1.1 var(--font-geist-mono), monospace;
+  letter-spacing: -0.06em;
+}
+
+.passport-stamp small {
+  font: 6px/1.4 var(--font-geist-mono), monospace;
+}
+
+.entry-1 .passport-stamp { border-radius: 50%; transform: rotate(-7deg); }
+.entry-2 .passport-stamp { transform: rotate(5deg); }
+.entry-2 .passport-stamp strong { font-size: 18px; }
+.is-current .passport-stamp { animation: passport-press 0.45s ease-out both; }
+
+.career-entry h3 {
+  margin: 0 0 8px;
+  font-size: clamp(25px, 2.5vw, 34px);
+  font-weight: 780;
+  letter-spacing: -0.045em;
+  line-height: 1.18;
+  text-wrap: balance;
+}
+
+.chapter-company {
+  margin: 0 0 20px;
+  font: 700 29px/1.2 "Work Caveat", cursive;
+  color: #47775e;
+}
+
+.chapter-summary {
+  margin: 0 0 24px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #5a6757;
+}
+
+.chapter-impact {
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--stamp);
+  background: #edf1e6;
+}
+
+.impact-pink { background: #f4ece4; }
+.impact-blue { background: #eaf0f4; }
+.impact-pin { display: none; }
+
+.chapter-impact small {
+  font: 9px/1.5 var(--font-geist-mono), monospace;
+  letter-spacing: 0.07em;
+  color: var(--stamp);
+}
+
+.chapter-impact p {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #4e614f;
+}
+
+.chapter-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-height: 48px;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  color: #344c5f;
+  font-size: 14px;
+  font-weight: 650;
+  text-align: left;
+  cursor: pointer;
+}
+
+.chapter-toggle-icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #b4c1aa;
+  border-radius: 50%;
+  font-size: 21px;
+  font-weight: 400;
+}
+
+.chapter-details {
+  padding-top: 10px;
+  animation: passport-details 0.2s ease-out;
+}
+
+.chapter-details[hidden] { display: none; }
+
+.chapter-details ul {
+  margin: 0 0 18px;
+  padding-left: 18px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #5b6956;
+}
+
+.chapter-details li { padding: 4px 0; }
+.chapter-details li::marker { color: #6c845c; }
+
+.chapter-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.chapter-tools span {
+  max-width: 100%;
+  padding: 6px 9px;
+  border: 1px solid #cbd6c2;
+  border-radius: 4px;
+  background: #f2f5eb;
+  color: #526748;
+  font: 11px/1.5 var(--font-geist-mono), monospace;
+  overflow-wrap: anywhere;
+}
+
+.chapter-details > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-top: 14px;
+  color: #344c5f;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.5;
+  text-underline-offset: 5px;
+  text-decoration-color: #aebca4;
+}
+
+.passport-education {
+  margin: 32px 0 28px;
+  padding: clamp(20px, 2.3vw, 32px);
+  border: 1px solid #d2d8c7;
+  border-radius: 4px 12px 12px 4px;
+  background: #fffdf6;
+}
+
+.passport-education > h3 {
+  margin: 14px 0 20px;
+  font-size: clamp(23px, 2.2vw, 28px);
+  font-weight: 750;
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+}
+
+.passport-education > article {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px 0;
+  border-top: 1px solid #dde3d3;
+}
+
+.passport-education > article:last-child { padding-bottom: 0; }
+.passport-education article > div:last-child { min-width: 0; }
+
+.education-icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #b7c4aa;
+  border-radius: 50%;
+  background: #eff3e9;
+  color: #527b59;
+}
+
+.education-period {
+  display: block;
+  margin-bottom: 8px;
+  font: 10px/1.6 var(--font-geist-mono), monospace;
+  letter-spacing: 0.03em;
+  color: #5e7052;
+}
+
+.passport-education h4 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.5;
+  color: #344c5f;
+}
+
+.passport-education article p {
+  margin: 0 0 10px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #5b6956;
+}
+
+.education-detail {
+  display: inline-block;
+  padding: 5px 8px;
+  border: 1px solid #ccd8be;
+  border-radius: 4px;
+  background: #f1f4eb;
+  color: #526748;
+  font: 11px/1.5 var(--font-geist-mono), monospace;
+}
+
+.passport-education .certification-title {
+  margin-top: 24px;
+  font-size: 23px;
+}
+
+.career-next {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px;
+  border: 1px dashed #adb9a2;
+  border-radius: 10px;
+  background: #e9eddf;
+}
+
+.career-next > div { min-width: 0; }
+.next-destination { flex: none; font-size: 34px; line-height: 1; color: #6f825c; }
+
+.career-next small {
+  font: 9px/1.5 var(--font-geist-mono), monospace;
+  letter-spacing: 0.1em;
+  color: #5d704d;
+}
+
+.career-next p {
+  margin: 9px 0 4px;
+  font: 600 28px/1.15 "Work Caveat", cursive;
+  color: #47775e;
+}
+
+.career-next a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: #344c5f;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.5;
+  text-underline-offset: 5px;
+}
+
+.career-years button:focus-visible,
+.chapter-toggle:focus-visible,
+.chapter-details > a:focus-visible,
+.career-next a:focus-visible {
+  outline: 3px solid #a37435;
+  outline-offset: 4px;
+}
+
+@keyframes passport-press {
+  0% { scale: 1.1; opacity: 0; }
+  65% { scale: 0.97; opacity: 0.95; }
+  100% { scale: 1; opacity: 0.9; }
+}
+
+@keyframes passport-details {
+  from { opacity: 0; translate: 0 -4px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+@media (hover: hover) {
+  .career-years button:hover { border-color: #7a8c83; }
+  .chapter-toggle:hover .chapter-toggle-icon { background: #eaf0e4; }
+}
+
+@media (min-width: 981px) and (min-height: 940px) {
+  .career-intro { position: sticky; top: var(--section-offset); }
+}
+
+@media (max-width: 980px) {
+  .career-layout { grid-template-columns: minmax(0, 1fr); gap: 48px; }
+  .career-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 280px); align-items: center; gap: 32px; }
+  .career-intro h2 { font-size: clamp(34px, 4.5vw, 44px); }
+  .career-intro-copy > p { margin-bottom: 0; }
+  .passport-identity { justify-self: center; }
+  .career-entries { width: 100%; max-width: 760px; margin-inline: auto; }
+}
+
+@media (max-width: 620px) {
+  .career-layout { gap: 36px; }
+  .career-intro { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .career-intro h2 { font-size: clamp(32px, 7.8vw, 43px); }
+  .career-intro-copy > p { max-width: 42ch; }
+  .passport-identity { width: min(100%, 280px); }
+  .passport-cover-border { padding: 16px 13px; }
+  .passport-emblem { width: 58px; height: 58px; margin: 15px auto 12px; }
+  .passport-holder { margin-top: 18px; padding-top: 13px; }
+  .passport-available { margin-top: 16px; }
+  .career-entries { --track-inset: 18px; }
+  .career-entry, .passport-education { padding: 20px; }
+  .career-entry h3 { font-size: 27px; }
+  .chapter-summary { font-size: 14px; }
+  .chapter-heading { gap: 12px; }
+  .passport-stamp { width: 110px; min-height: 68px; }
+  .passport-stamp strong { font-size: 23px; }
+  .passport-stamp > span { font-size: 6px; }
+  .passport-stamp small { font-size: 5px; }
+  .career-next { gap: 12px; padding: 20px; }
+  .career-next p { font-size: 26px; }
+}
+
+@media (max-width: 380px) {
+  .career-eyebrow { font-size: 9px; letter-spacing: 0.08em; }
+  .career-entries { --track-inset: 14px; }
+  .career-entry, .passport-education { padding: 18px 15px; }
+  .chapter-top { font-size: 9px; }
+  .chapter-number { font-size: 8px; }
+  .chapter-heading { grid-template-columns: minmax(0, 1fr) 98px; gap: 10px; }
+  .chapter-label { font-size: 10px; }
+  .passport-stamp { width: 98px; }
+  .passport-stamp small { font-size: 4.5px; }
+  .career-entry h3 { font-size: 25px; }
+  .chapter-impact { padding: 12px; }
+  .passport-education > article { gap: 10px; }
+  .education-icon { width: 26px; height: 26px; }
+  .career-next { padding: 18px 15px; gap: 9px; }
+  .next-destination { font-size: 27px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .career-years button, .career-node { transition: none; }
+  .is-current .passport-stamp, .chapter-details { animation: none; }
+}
